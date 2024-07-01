@@ -37,6 +37,9 @@ app.use("/fonts", express.static(path.resolve(__dirname, "Assets/fonts")));
 
 app.use("/", require("./Server/routes/router"));
 
+// Serve sitemap.xml statically
+app.use("/sitemap.xml", express.static(path.resolve(__dirname, "sitemap.xml")));
+
 var server = app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
