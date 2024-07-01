@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/text.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js" integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="shortcut icon" href="../img/logow.png" type="image/x-icon">
+         
+        <title>
+            Chat & Mingle
+          </title>
+
+    </head>
+    <body class="slider-thumb">
+        <div class="dot"></div> 
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <header>
+            <nav>
+                <div class="container">
+                    <div class="logo-text-wrapper">
+                        <span> <img src="img/logow.png" alt="" /></span>
+                        <span class="head">CHAT & MINGLE</span>
+                    </div>
+                    <div class="online-status"></div>
+                        <script>
+                            let socket = io.connect();
+                  
+                            // Listen for the updateUserCount event from the server
+                            socket.on("updateUserCount", (userCount) => {
+                              // Update the HTML to display the live user count
+                              document.querySelector('.online-status').textContent = userCount + " online now";
+
+                            });
+                        </script>
+                </div>
+            </nav>
+        </header>
+        <main class="video_chat_main_container">
+            
+            <div class="video_chat_container" style="justify-content: center;align-items: center;">
+                <div class="chat-container">
+                    <div class="chat-text-container">
+                        <p class="z" style="color: black; margin-top: 21px; margin-left: 15px; margin-bottom: 17px;font-weight: bold;"> connecting to new user..... </p>
+                        <button id="reportButton" class="report" type="button">Report User</button>
+                        <hr class="horizontal-divider">
+                        <p class="chat-text-area"></p>
+                    </div>
+                  
+                    <div class="next-chat-container">
+                        <div class="next-chat">
+                            <div>Next</div>
+                        </div>
+                        <div class="type-message">
+                            <textarea name="" id="msg-input" cols="25" rows="5"></textarea>
+                        </div>
+
+                        <div class="msg-send-button">
+                            <i class="material-icons " style="font-size:36px; color: black;">send</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="/js/chat.js"></script>
+
+</html>

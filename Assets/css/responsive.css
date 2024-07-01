@@ -1,0 +1,392 @@
+@media (max-width: 1120px) {
+    .saving_section .detail-box {
+        padding: 0;
+    }
+}
+
+@media (max-width: 992px) {
+    .user_option {
+        justify-content: center;
+        margin-left: 0;
+        margin-top: 10px;
+
+    }
+
+    .custom_nav-container {
+        flex-direction: row;
+    }
+
+    .custom_nav-container .navbar-nav {
+        align-items: center;
+    }
+
+    #navbarSupportedContent .navbar-nav .nav-link {
+        margin: 5px 0;
+    }
+
+    .slider_section .detail-box {
+        padding-left: 0;
+    }
+
+    .slider_section .detail-box h1 {
+        font-size: 2.4rem;
+        text-align: center; /* Center-aligns text within the h1 element */
+
+    }
+    .slider_section .detail-box p {
+        text-align: center; /* Center-aligns text within the h1 element */
+
+    }
+
+    .slider_section .img-box {
+        padding: 0;
+    }
+    .slider_section .img-box1,
+    .slider_section .img-box2,
+    .slider_section .img-box3 {
+        display: flex;
+        justify-content: center; /* Centers images horizontally */
+        align-items: center;     /* Centers images vertically */
+    }
+
+    .slider_section .img-box1 img {
+        margin-bottom: 21px;
+        width: 285px;
+        height: 277.3px
+    }
+    .slider_section .img-box2 img {
+        width: 250px;
+    }
+    .slider_section .img-box3 img {
+        width: 280px;
+        height: 282.6px;
+    }
+
+    .slider_section .hyper {
+        margin-top: 4px; /* Adjust as needed */
+    }  
+    .slider_section .carousel_btn-container {
+        bottom: -4px; /* Move 10 pixels outside the base div */  
+    }
+
+    .saving_section .row {
+        flex-direction: column-reverse;
+    }
+    .heading_container h2{
+        text-align: center;
+    }
+    .adv_section .detail-box p{
+        text-align: center;
+    }
+    
+    .saving_section .detail-box {
+        margin-bottom: 30px;
+    }
+
+    .client_section .box {
+        margin: 15px 25px;
+    }
+
+    .client_section .carousel_btn-box {
+        display: flex;
+        justify-content: center;
+        margin-top: 45px;
+    }
+
+    .client_section .carousel-control-prev,
+    .client_section .carousel-control-next {
+        position: unset;
+        margin: 0 2.5px;
+        width: 45px;
+        height: 45px;
+    }
+    .collapse {
+        display: block;
+        transition: height 0.35s ease;
+        overflow: hidden;
+        height: auto;
+      }
+      
+      /* Hide the navbar collapse when not shown */
+      .collapse:not(.show) {
+        height: 0;
+        transition: height 0.35s ease, padding-top 0.35s ease;
+        padding-top: 0;
+        display: block;
+      }
+      .adv_section .detail-box{
+        padding: 25px;
+      }
+      .adv_section .img-box{
+        padding: 0px;
+        padding-left: 10px;
+      }
+      .why_section .row{
+        margin-left: 0px;
+        margin-right: 0px;
+      }
+      .adv_section {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero_area {
+        padding: 0 18px;
+    }
+
+    .slider_section .img-box {
+        margin-bottom: 45px;
+    }
+    .slider_section .carousel_btn-container {
+        bottom: -7px; /* Move 10 pixels outside the base div */  
+        width: 100%;
+        left: 0%;
+    }
+    .slider_section .carousel_btn-container .carousel-control-prev, .slider_section .carousel_btn-container .carousel-control-next{
+        width: 45px;
+        height: 45px;
+    }
+
+    
+    .adv_section {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .adv_section .box {
+        padding: 45px 0;
+    }
+
+    .adv_section .img-box {
+        padding: 0px;
+        display: flex;
+        margin-bottom: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+    .adv_section .img-box img {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .info_section .row>div {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .info_section {
+        margin: 0 0px 0px;
+        margin-left: -18px;
+        margin-right: -18px;
+    }
+    .head{
+        font-family: 'Poppins';
+    }
+    .slider_section .slider_container {
+        padding-top: 0px;
+    }
+    /*---------blur effect--------*/
+#popup{
+    position: fixed;
+    height: 410px;
+    width: 300px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 17px;
+    box-shadow: 0 5px 30px rgba(0,0,0,.30);
+    border-radius: 10px;
+    background: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+  }
+  #popup.active{
+    top: 50%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+  }
+  /*----end----*/ 
+  /*------------checkbox------------*/
+.wrap{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 5.1px; /* Add padding for spacing */
+  }
+  .wrap input[type="checkbox"]{
+    appearance: none;
+    -webkit-appearance: none;
+    height: 20px;
+    width: 20px;
+    left: 0%;
+    margin-right: 18px;
+    background-color: #d5d5d5;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+  }
+  .wrap label{
+    color: #4c4c4c;
+    font-size: 16px;
+    font-family: 'Poppins',sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .wrap input[type="checkbox"]:after{
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    content: "\f00c";
+    font-size: 15px;
+    color: white;
+    display: none;
+  
+  }
+  .wrap input[type="checkbox"]:hover{
+    background-color: #a5a5a5;
+  }
+  .wrap input[type="checkbox"]:checked{
+    background-color: #5bcd3e;
+  }
+  .wrap input[type="checkbox"]:checked:after{
+    display: block;
+  }
+  .tc h6 {
+    text-align: center; /* Center the heading */
+    margin-top: -45px; /* Remove top margin */
+    font-size: 13px;
+    font-weight: 900;
+  }
+  .tc .para1{
+    font-size: 10px;
+  
+  }
+  .tc .para2{
+    font-size: 10px;
+  }
+  .tc .para3{
+    font-size: 10px;
+  }
+  .hypers{
+    display: flex;
+    justify-content: center;
+    margin-top: 0px;
+  }
+  button[type="submit"] {
+    background-color: #45a148; /* Green background */
+    color: white; /* White text */
+    border: none; /* Remove border */
+    border-radius: 10px; /* Rounded corners */
+    padding: 10px 20px; /* Add some padding */
+    text-align: center; /* Center text */
+    justify-content: center;
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Increase font size */
+    font-family: 'Poppins', sans-serif; /* Use a nice font */
+    transition-duration: 0.4s; /* Make transitions smooth */
+    cursor: pointer; /* Add a pointer cursor on hover */
+  }
+  
+  button[type="submit"]:hover {
+    background-color: white; /* White background on hover */
+    color: black; /* Black text on hover */
+    border: 2px solid #4CAF50; /* Add a green border */
+  }
+  .tc{
+    background-color: pink;
+    border-radius: 3px;
+    margin-left: 44px;
+    margin-bottom: 5px;
+    padding: 10px;
+    height: 120px;
+    overflow-y: auto;
+    word-break: break-all;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    box-shadow: inset 0px 8px 8px -6px rgba(0, 0, 0, 0.3), /* top shadow */
+                inset -8px 0px 8px -6px rgba(0, 0, 0, 0.3), /* left shadow */
+                inset 8px 0px 8px -6px rgba(0, 0, 0, 0.3); /* right shadow */
+  }
+  .tc::-webkit-scrollbar{
+    width: 4px;
+  }
+  
+  .tc::-webkit-scrollbar-track{
+    background: transparent;
+    border-radius: 15px;
+  }
+  
+  .tc::-webkit-scrollbar-thumb {
+    background-color: #878787;
+    border-radius: 10px;
+  }
+  
+  /*-----end-----*/ 
+  
+  .g-recaptcha {
+    transform:scale(0.80);
+    transform-origin:0 0;
+    padding-top: 20px;
+    padding-left: 70px;
+  }
+  .collapse {
+    display: block;
+    transition: height 0.35s ease;
+    overflow: hidden;
+    height: auto;
+  }
+  
+  /* Hide the navbar collapse when not shown */
+  .collapse:not(.show) {
+    height: 0;
+    transition: height 0.35s ease, padding-top 0.35s ease;
+    padding-top: 0;
+    display: block;
+  }
+  .navbar-nav{
+    padding-top: 10px;
+  }
+  .why_section .row{
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .info_section hr{
+    margin-top: 5px;
+  }
+
+
+}
+
+@media (max-width: 576px) {
+    .contact_section {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .saving_section .detail-box,
+    .adv_section .detail-box {
+        padding: 0 5px;
+    }
+}
+
+@media (max-width: 420px) {}
+
+@media (max-width: 376px) {}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1170px;
+    }
+}
