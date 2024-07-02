@@ -76,7 +76,6 @@ function runUser() {
         };
         sendChannel = peerConnection.createDataChannel("sendDataChannel");
         sendChannel.onopen = () => {
-            console.log("Data channel is now open and ready to use");
             onSendChannelStateChange();
             document.querySelector(".z").innerHTML = "<p style='font-weight: bold;'> user connected enjoy ur company</p>"
             msgInput.disabled = false; // Enable the textarea
@@ -107,7 +106,6 @@ function runUser() {
     }
 
     function receiveChannelCallback(event) {
-        console.log("Receive Channel Callback");
         receiveChannel = event.channel;
         receiveChannel.onmessage = onReceiveChannelMessageCallback;
         receiveChannel.onopen = onReceiveChannelStateChange;
@@ -127,15 +125,10 @@ function runUser() {
 
     function onReceiveChannelStateChange() {
         const readyState = receiveChannel.readyState;
-        console.log("Receive channel state is: " + readyState);
         if (readyState === "open") {
-            console.log(
-                "Data channel ready state is open - onReceiveChannelStateChange"
-            );
+            
         } else {
-            console.log(
-                "Data channel ready state is NOT open - onReceiveChannelStateChange"
-            );
+            
             document.querySelector(".msg-send-button").style.pointerEvents = "none";
             document.querySelector("#msg-input").value = ""; 
             msgInput.disabled = true;
@@ -145,15 +138,10 @@ function runUser() {
 
     function onSendChannelStateChange() {
         const readyState = sendChannel.readyState;
-        console.log("Send channel state is: " + readyState);
         if (readyState === "open") {
-            console.log(
-                "Data channel ready state is open - onSendChannelStateChange"
-            );
+            
         } else {
-            console.log(
-                "Data channel ready state is NOT open - onSendChannelStateChange"
-            );
+            
         }
     }
 
@@ -167,7 +155,6 @@ function runUser() {
           "/get-next-user",
           { omeID: username, remoteUser: prevRemoteUser },
           function (data) {
-            console.log("Next user is: ", data);
             if (data.blocked === 'yes') {
               // Redirect to block page if user is blocked
               window.location.replace('/block_page');
@@ -179,10 +166,8 @@ function runUser() {
                 document.getElementById("reportButton").disabled = false;
                 remoteUser = data.data[0]._id;
                 createOffer(data.data[0]._id);
-                console.log("new remoteuser", remoteUser);
               }
             } else {
-                console.log("No user found");
 
             }
           }
