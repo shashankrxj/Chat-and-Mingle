@@ -54,6 +54,12 @@ function runUser() {
                 urls: [
                     "stun:stun1.1.google.com:19302",
                     "stun:stun2.1.google.com:19302",
+                    "stun:stun3.l.google.com:19302",
+                    "stun:stun4.l.google.com:19302",
+                    "stun:stun.ekiga.net",
+                    "stun:stun.ideasip.com",
+                    "stun:stun.rixtelecom.se",
+                    "stun:stun.schlund.de"
                 ],
             },
         ],
