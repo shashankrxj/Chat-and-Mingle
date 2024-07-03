@@ -27,6 +27,7 @@ function runUser() {
     let init = async () => {
         $.post("/get-remote-users", { omeID: username })
             .done(function (data) {
+                console.log(data);
                 if (data[0]) {
                     if (data[0]._id == remoteUser || data[0]._id == username) {
                     } else {
