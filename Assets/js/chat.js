@@ -82,6 +82,7 @@ function runUser() {
         };
         sendChannel = peerConnection.createDataChannel("sendDataChannel");
         sendChannel.onopen = () => {
+            console.log("Data channel is now open and ready to use");
             onSendChannelStateChange();
             document.querySelector(".z").innerHTML = "<p style='font-weight: bold;'> user connected enjoy ur company</p>"
             msgInput.disabled = false; // Enable the textarea
