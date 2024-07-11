@@ -114,4 +114,4 @@ setInterval(() => {
   randomUserCount = Math.floor(Math.random() * 31) + 127;
   let adjustedUserCount = userConnection.length + randomUserCount;
   io.emit("updateUserCount", adjustedUserCount);
-}, 20000);
+}, 60000);
