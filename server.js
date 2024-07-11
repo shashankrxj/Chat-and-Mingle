@@ -49,6 +49,7 @@ const io = require("socket.io")(server, {
 });
 
 var userConnection = [];
+var randomUserCount = Math.floor(Math.random() * 31) + 127; // Initial random count between 127 and 157
 
 io.on("connection", (socket) => {
 
@@ -58,7 +59,7 @@ io.on("connection", (socket) => {
       user_id: data.displayName,
     });
     // Emit the updated user count to all connected clients
-    let adjustedUserCount = userConnection.length + 132;
+    let adjustedUserCount = userConnection.length + randomUserCount;
     io.emit("updateUserCount", adjustedUserCount);
 
     var userCount = userConnection.length;
@@ -96,7 +97,7 @@ io.on("connection", (socket) => {
     // if (disUser) {
     userConnection = userConnection.filter((user) => user.connectionId !== socket.id);
     // Emit the updated user count to all connected clients
-    let adjustedUserCount = userConnection.length + 132;
+    let adjustedUserCount = userConnection.length + randomUserCount;
     io.emit("updateUserCount", adjustedUserCount);
     
   });
@@ -107,3 +108,10 @@ io.on("connection", (socket) => {
     }
   });
 });
+
+// Function to update random user count every 20 seconds
+setInterval(() => {
+  randomUserCount = Math.floor(Math.random() * 31) + 127;
+  let adjustedUserCount = userConnection.length + randomUserCount;
+  io.emit("updateUserCount", adjustedUserCount);
+}, 20000);
