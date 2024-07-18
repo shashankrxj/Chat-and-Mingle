@@ -695,3 +695,54 @@ button[type="submit"]:hover {
   padding-top: 20px;
   padding-left: 70px;
 }
+
+/*-----sharepopup------*/
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.popup-content h2 {
+  margin: 0 0 10px;
+  background: linear-gradient(45deg, #09009f, #00ff95 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: bold; /* Adjust font-weight as needed */
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.1); /* Adjust the shadow color and blur radius */
+
+}
+
+.popup-content p {
+  margin: 0 0 20px;
+  font-weight: 500; /* Adjust font-weight as needed */
+
+}
+
+.popup-content button {
+  padding: 10px 20px;
+  border: none;
+  background: linear-gradient(45deg, #0c00eb, #016ff6 80%);
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: red; /* Change color on hover if desired */
+}
