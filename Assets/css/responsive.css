@@ -151,8 +151,8 @@
 
     
     .adv_section {
-        padding-left: 25px;
-        padding-right: 25px;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 
     .adv_section .box {
@@ -214,7 +214,7 @@
   }
   /*----end----*/ 
   /*------------checkbox------------*/
-.wrap{
+  .wrap{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -361,6 +361,10 @@
   }
   .info_section hr{
     margin-top: 5px;
+  }
+  .popup-content {
+    max-height: 400px;
+    width: 300px;
   }
 
 
