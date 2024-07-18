@@ -19,7 +19,8 @@
   <meta name="author" content="Chat & Mingle" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.6.1/socket.io.js" integrity="sha512-xbQU0+iHqhVt7VIXi6vBJKPh3IQBF5B84sSHdjKiSccyX/1ZI7Vnkt2/8y8uruj63/DVmCxfUNohPNruthTEQA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <link rel="shortcut icon" href="../img/logow.png" type="image/x-icon">
+  <link rel="icon" href="img/logo.png" sizes="48x48" type="image/png">
+  <link rel="shortcut icon" href="img/logow.png" type="image/x-icon">
 
   <title>
     Chat & Mingle
@@ -548,6 +549,14 @@ Chat & Mingle provides a vibrant platform for social interaction, allowing users
         </div>
     </form>
 </div>
+<div id="sharePopup">
+  <div class="popup-content">
+    <span class="close" onclick="closeSharePopup()">&times;</span>
+    <h2>Help Us Grow!</h2>
+    <p>Share our website with your friends to help us grow.</p>
+    <button onclick="copyLinkAndClose()">Copy Link</button>
+  </div>
+</div>
 
 
   <!-- end info section -->
@@ -582,6 +591,34 @@ Chat & Mingle provides a vibrant platform for social interaction, allowing users
                 body.classList.remove('no-scroll');
             }
         });
+
+    function copyLinkAndClose() {
+            // Function to copy the website link
+            var websiteLink = window.location.href; // Get current page URL
+            navigator.clipboard.writeText(websiteLink); // Copy the URL to clipboard
+
+            // Trigger closeSharePopup function
+            closeSharePopup();
+    }
+
+    function closeSharePopup() {
+            var sharePopup = document.getElementById('sharePopup');
+            var blur = document.getElementById('blur');
+            var body = document.body;
+
+            sharePopup.style.display = 'none';
+            blur.classList.remove('active');
+            body.classList.remove('no-scroll');  
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+            var blur = document.getElementById('blur');
+            var body = document.body;
+
+            blur.classList.add('active'); // Add 'active' class to blur
+            body.classList.add('no-scroll'); // Add 'no-scroll' class to body
+            sharePopup.style.display = 'block';
+    });
            
     </script>
 
