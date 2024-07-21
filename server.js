@@ -49,7 +49,7 @@ const io = require("socket.io")(server, {
 });
 
 var userConnection = [];
-var randomUserCount = Math.floor(Math.random() * 31) + 127; // Initial random count between 127 and 157
+var randomUserCount = Math.floor(Math.random() * 40) + 73; // Initial random count between 73 and 112
 
 io.on("connection", (socket) => {
 
@@ -109,9 +109,9 @@ io.on("connection", (socket) => {
   });
 });
 
-// Function to update random user count every 20 seconds
+// Function to update random user count every 120 seconds
 setInterval(() => {
-  randomUserCount = Math.floor(Math.random() * 31) + 127;
+  randomUserCount = Math.floor(Math.random() * 40) + 73; // Random count between 73 and 112
   let adjustedUserCount = userConnection.length + randomUserCount;
   io.emit("updateUserCount", adjustedUserCount);
-}, 60000);
+}, 120000);
