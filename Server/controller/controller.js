@@ -2,65 +2,6 @@ const mongoose = require("mongoose");
 const User = require("../model/model");
 const fetch = require('node-fetch');
 
-exports.create = (req, res) => {
-  const { country, browser } = req.body; // Assuming you are sending these in the request body
-  const user = new User({
-    active: "no",
-    status: "0",
-    country: country,
-    browser: browser
-  });
-  user
-  .save()
-  .then((data) => {
-      req.session.userId=data._id;
-      res.send(data._id);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message:
-          err.message ||
-          "Some error occurred while creating a create operation",
-      });
-    });
-};
-
-exports.leavingUserUpdate = (req, res) => {
-  const userid = req.params.id;
-
-  User.updateOne({ _id: userid }, { $set: { active: "no", status: "0" } })
-    .then((data) => {
-      if (!data) {
-        res.status(404).send({
-          message: `Cannot update user with ${userid} Maybe user not found!`,
-        });
-      } else {
-        res.send("1 document updated");
-      }
-    })
-    .catch((err) => {
-      res.status(500).send({ message: "Error update user information" });
-    });
-};
-
-exports.updateOnOtherUserClosing = (req, res) => {
-  const userid = req.params.id;
-
-  User.updateOne({ _id: userid }, { $set: { active: "yes", status: "1" } })
-    .then((data) => {
-      if (!data) {
-        res.status(404).send({
-          message: `Cannot update user with ${userid} Maybe user not found!`,
-        });
-      } else {
-        res.send("1 document updated");
-      }
-    })
-    .catch((err) => {
-      res.status(500).send({ message: "Error update user information" });
-    });
-};
-
 exports.newUserUpdate = (req, res) => {
   const userid = req.params.id;
   req.session.userId = userid; // Correct position for storing userId in session
@@ -147,26 +88,6 @@ exports.updateactiveyes = (req, res) => {
     });
 };
 
-
-
-exports.updateOnEngagement = (req, res) => {
-  const userid = req.params.id;
-
-  User.updateOne({ _id: userid }, { $set: { status: "1" } })
-    .then((data) => {
-      if (!data) {
-        res.status(404).send({
-          message: `Cannot update user with ${userid} Maybe user not found!`,
-        });
-      } else {
-        res.send("1 document updated");
-      }
-    })
-    .catch((err) => {
-      res.status(500).send({ message: "Error update user information" });
-    });
-};
-
 exports.updateOnNext = (req, res) => {
   const userid = req.params.id;
 
@@ -223,47 +144,6 @@ exports.remoteUserFind = (req, res) => {
       });
   } else {
   }
-};
-
-exports.getNextUser = (req, res) => {
-  const omeID = req.body.omeID;
-  const remoteUser = req.body.remoteUser;
-  let excludedIds = [omeID, remoteUser];
-
-  User.findOne({ _id: omeID }) // Find the user with the given omeID
-    .then(user => {
-      if (user) {
-        if (user.reportCount >= 3) {
-          // If report count is >= 3, send 'blocked' status as 'yes'
-          res.send({ data: null, blocked: 'yes' });
-        } else {
-          // Otherwise, proceed to find next user
-          User.aggregate([
-            {
-              $match: {
-                _id: { $nin: excludedIds.map(id => new mongoose.Types.ObjectId(id)) },
-                active: "yes",
-                status: "0",
-              },
-            },
-            { $sample: { size: 1 } },
-          ])
-            .then(data => {
-              res.send({ data, blocked: 'no' }); // Include 'blocked' status with value 'no'
-            })
-            .catch(err => {
-              res.status(500).send({
-                message: err.message || "Error occurred while retrieving user information.",
-              });
-            });
-        }
-      } else {
-        res.status(404).send({ message: "User not found with provided ID." });
-      }
-    })
-    .catch(err => {
-      res.status(500).send({ message: err.message || "Error occurred while retrieving user information." });
-    });
 };
 
 exports.deleteAllRecords = (req, res) => {
