@@ -10,7 +10,8 @@ Focused on privacy and anonymity, the app ensures secure interactions, encouragi
 1. [Features](#features)
 2. [Technologies Used](#technologies-used)
 3. [Usage Guide](#usage-guide)
-4. [License](#license)
+4. [Testing](#testing)
+5. [License](#license)
 
 ## Features
 
